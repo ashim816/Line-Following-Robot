@@ -1,0 +1,42 @@
+# 2. Obstacle-Avoiding Robot
+# Arduino code for obstacle avoidance
+
+"""
+#include <AFMotor.h>
+
+AF_DCMotor leftMotor(1);
+AF_DCMotor rightMotor(2);
+
+int trigPin = 9;
+int echoPin = 10;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH);
+  int distance = duration * 0.034 / 2;
+
+  if (distance < 20) {
+    leftMotor.run(BACKWARD);
+    rightMotor.run(BACKWARD);
+    delay(1000);
+
+    leftMotor.run(FORWARD);
+    rightMotor.run(BACKWARD);
+    delay(500);
+  } else {
+    leftMotor.run(FORWARD);
+    rightMotor.run(FORWARD);
+  }
+}
+"""
+

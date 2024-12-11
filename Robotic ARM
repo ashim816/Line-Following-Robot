@@ -1,0 +1,31 @@
+# 3. Robotic Arm Controller
+# Arduino code for robotic arm control using joystick
+
+"""
+#include <Servo.h>
+
+Servo baseServo, armServo;
+
+int xPin = A0;
+int yPin = A1;
+
+void setup() {
+  baseServo.attach(9);
+  armServo.attach(10);
+  pinMode(xPin, INPUT);
+  pinMode(yPin, INPUT);
+}
+
+void loop() {
+  int xValue = analogRead(xPin);
+  int yValue = analogRead(yPin);
+
+  int baseAngle = map(xValue, 0, 1023, 0, 180);
+  int armAngle = map(yValue, 0, 1023, 0, 180);
+
+  baseServo.write(baseAngle);
+  armServo.write(armAngle);
+
+  delay(15);
+}
+"""

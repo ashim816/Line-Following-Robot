@@ -1,0 +1,28 @@
+int soilMoisturePin = A0;
+int temperaturePin = A1;
+int waterPumpPin = 9;
+
+void setup() {
+  pinMode(soilMoisturePin, INPUT);
+  pinMode(temperaturePin, INPUT);
+  pinMode(waterPumpPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int soilMoisture = analogRead(soilMoisturePin);
+  int temperature = analogRead(temperaturePin);
+
+  Serial.print("Soil Moisture: ");
+  Serial.println(soilMoisture);
+  Serial.print("Temperature: ");
+  Serial.println(temperature);
+
+  if (soilMoisture < 500) {
+    digitalWrite(waterPumpPin, HIGH);  // Activate water pump
+  } else {
+    digitalWrite(waterPumpPin, LOW);   // Deactivate water pump
+  }
+
+  delay(1000);
+}
